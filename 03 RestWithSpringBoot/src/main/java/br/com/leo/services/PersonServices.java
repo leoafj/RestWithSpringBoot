@@ -15,7 +15,7 @@ public class PersonServices {
     PersonRepository repository;
 
     public Person create(Person person){
-        return person;
+        return repository.save(person);
     }
 
     public List<Person> findAll() {
