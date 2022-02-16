@@ -1,8 +1,7 @@
 package br.com.leo.controller;
 
-import br.com.leo.math.SimpleMath;
 import br.com.leo.model.Person;
-import br.com.leo.request.converters.NumberConverter;
+import br.com.leo.request.repository.NumberConverter;
 import br.com.leo.services.PersonServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
