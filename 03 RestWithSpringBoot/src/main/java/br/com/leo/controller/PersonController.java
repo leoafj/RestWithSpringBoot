@@ -1,6 +1,6 @@
 package br.com.leo.controller;
 
-import br.com.leo.model.Person;
+import br.com.leo.data.vo.PersonVO;
 import br.com.leo.services.PersonServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -17,22 +17,22 @@ public class PersonController {
     private PersonServices service;
 
     @GetMapping
-    public List<Person> findAll (){
+    public List<PersonVO> findAll (){
         return service.findAll();
     }
 
     @GetMapping("/{id}")
-    public Person findById (@PathVariable("id") Long id){
+    public PersonVO findById (@PathVariable("id") Long id){
         return service.findById(id);
     }
 
     @PostMapping
-    public Person create (@RequestBody Person person){
+    public PersonVO create (@RequestBody PersonVO person){
         return service.create(person);
     }
 
     @PutMapping
-    public Person update (@RequestBody Person person){
+    public PersonVO update (@RequestBody PersonVO person){
         return service.update(person);
     }
 
