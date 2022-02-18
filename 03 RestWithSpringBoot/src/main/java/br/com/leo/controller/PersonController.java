@@ -1,6 +1,6 @@
 package br.com.leo.controller;
 
-import br.com.leo.data.vo.PersonVO;
+import br.com.leo.vo.v1.PersonVO;
 import br.com.leo.services.PersonServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -10,7 +10,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/{person}")
+@RequestMapping("/api/person/v1")
 public class PersonController {
 
     @Autowired

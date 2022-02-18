@@ -1,6 +1,7 @@
 package br.com.leo.converter.mocks;
 
 import br.com.leo.data.model.Person;
+import br.com.leo.vo.v1.PersonVO;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ public class MockPerson {
         return mockEntity(0);
     }
 
-    public br.com.leo.data.vo.PersonVO mockVO(){
+    public PersonVO mockVO(){
         return mockVO(0);
     }
 
@@ -23,8 +24,8 @@ public class MockPerson {
         return persons;
     }
 
-    public List<br.com.leo.data.vo.PersonVO> mockVOList(){
-        List<br.com.leo.data.vo.PersonVO> persons = new ArrayList<>();
+    public List<PersonVO> mockVOList(){
+        List<PersonVO> persons = new ArrayList<>();
         for (int i = 0; i < 14; i++) {
             persons.add(mockVO(i));
         }
@@ -41,8 +42,8 @@ public class MockPerson {
         return person;
     }
 
-    private br.com.leo.data.vo.PersonVO mockVO(Integer number) {
-        br.com.leo.data.vo.PersonVO person = new br.com.leo.data.vo.PersonVO();
+    private PersonVO mockVO(Integer number) {
+        PersonVO person = new PersonVO();
         person.setAddress("Addres Test" + number);
         person.setFirstName("First Name Teste" + number);
         person.setGender(((number % 2)== 0) ? "Male" : "Female");

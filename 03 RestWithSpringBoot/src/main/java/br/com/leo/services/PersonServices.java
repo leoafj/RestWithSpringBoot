@@ -1,7 +1,7 @@
 package br.com.leo.services;
 
 import br.com.leo.converter.DozerConverter;
-import br.com.leo.data.vo.PersonVO;
+import br.com.leo.vo.v1.PersonVO;
 import br.com.leo.exception.ResourceNotFoundException;
 import br.com.leo.data.model.Person;
 import br.com.leo.request.repository.PersonRepository;
