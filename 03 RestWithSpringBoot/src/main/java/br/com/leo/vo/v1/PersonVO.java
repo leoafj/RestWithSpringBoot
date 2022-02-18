@@ -1,9 +1,10 @@
 package br.com.leo.vo.v1;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.github.dozermapper.core.Mapping;
 import org.springframework.hateoas.RepresentationModel;
+
 import java.io.Serializable;
-import java.util.Objects;
 
 
 public class PersonVO extends RepresentationModel implements Serializable {
@@ -11,6 +12,7 @@ public class PersonVO extends RepresentationModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Mapping("id")
+    @JsonProperty("id")
     private long key;
     private String firstName;
     private String lastName;
