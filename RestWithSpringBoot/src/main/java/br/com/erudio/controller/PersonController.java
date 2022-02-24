@@ -21,7 +21,6 @@ import br.com.erudio.services.PersonServices;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
-//@Api(value = "PersonEndpoint", description = "REST API for Person", tags = { "PersonEndpoint" })
 @Api(tags = "PersonEndpoint")
 @RestController
 @RequestMapping("/api/person/v1")

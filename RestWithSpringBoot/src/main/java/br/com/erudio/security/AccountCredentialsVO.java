@@ -4,9 +4,6 @@ import java.io.Serializable;
 
 public class AccountCredentialsVO implements Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	private String username;
@@ -15,12 +12,15 @@ public class AccountCredentialsVO implements Serializable {
 	public String getUsername() {
 		return username;
 	}
+	
 	public void setUsername(String username) {
 		this.username = username;
 	}
+	
 	public String getPassword() {
 		return password;
 	}
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
@@ -33,6 +33,7 @@ public class AccountCredentialsVO implements Serializable {
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -54,8 +55,5 @@ public class AccountCredentialsVO implements Serializable {
 			return false;
 		return true;
 	}
-	
-	
-
 
 }

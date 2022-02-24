@@ -1,7 +1,6 @@
 package br.com.erudio.data.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,15 +15,12 @@ import org.springframework.security.core.GrantedAuthority;
 @Table(name = "permission")
 public class Permission implements GrantedAuthority, Serializable {
 
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
-	private long id;
+	private Long id;
 	
 	@Column(name = "description")
 	private String description;
@@ -34,11 +30,11 @@ public class Permission implements GrantedAuthority, Serializable {
 		return this.description;
 	}
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -52,7 +48,11 @@ public class Permission implements GrantedAuthority, Serializable {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(description, id);
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((description == null) ? 0 : description.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
 	}
 
 	@Override
@@ -64,11 +64,16 @@ public class Permission implements GrantedAuthority, Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Permission other = (Permission) obj;
-		return Objects.equals(description, other.description) && id == other.id;
+		if (description == null) {
+			if (other.description != null)
+				return false;
+		} else if (!description.equals(other.description))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
-
-	
-	
-	
-
 }
