@@ -77,7 +77,6 @@ public class Person implements Serializable{
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	
 
 	public Boolean getEnabled() {
 		return enabled;
@@ -141,8 +140,4 @@ public class Person implements Serializable{
 			return false;
 		return true;
 	}
-
-	
-
-	
 }

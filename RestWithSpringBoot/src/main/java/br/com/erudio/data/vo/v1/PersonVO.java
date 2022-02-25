@@ -65,7 +65,6 @@ public class PersonVO extends ResourceSupport implements Serializable{
 		this.gender = gender;
 	}
 	
-
 	public Boolean getEnabled() {
 		return enabled;
 	}
@@ -128,6 +127,4 @@ public class PersonVO extends ResourceSupport implements Serializable{
 			return false;
 		return true;
 	}
-
-	
 }
