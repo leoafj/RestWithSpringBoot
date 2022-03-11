@@ -1,7 +1,7 @@
 language: bash
 services: docker
 before_install:
-  - cd RestWithSpringBootDocker\ Docker/
+  - cd RestWithSpringBootDocker
   - echo "We area in the Docker folder!"
 script:
   - docker-compose build
