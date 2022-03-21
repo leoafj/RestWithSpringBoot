@@ -8,8 +8,8 @@ python:
 services: docker
 before_install:
   - sudo apt-get update
-  - cd RestWithSpringBoot/RestWithSpringBootAWS/RestWithSpringBoot
-  - echo "Let's strat Maven Package!"
+  - cd RestWithSpringBoot/RestWithSpringBootAWS
+  - echo "Let's start Maven Package!"
   - mvn clean package
   - cd ..
   - echo "We are in the docker folder!"
