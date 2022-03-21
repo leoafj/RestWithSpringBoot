@@ -12,7 +12,7 @@ before_install:
   - echo "Let's strat Maven Package!"
   - mvn clean package
   - cd ..
-  - echo "We are in the docker folder!"
+  - echo "We are in the docker folder!!"
 script:
   - echo "OK Here we GO!"
   - docker-compose build
