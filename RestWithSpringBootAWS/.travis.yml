@@ -1,0 +1,44 @@
+sudo: required
+dist: bionic
+language: java
+jdk:
+  - oraclejdk11
+python:
+  - "3.6"
+services: docker
+before_install:
+  - sudo apt-get update
+  - cd RestWithSpringBoot/ RestWithSpringBootAWS/ RestWithSpringBoot
+  - echo "Let's strat Maven Package!"
+  - mvn clean package
+  - cd ..
+  - echo "We are in the docker folder!"
+script:
+  - echo "OK Here we GO!"
+  - docker-compose build
+before_deploy:
+  - echo "${DOCKER_PASSWORD}" | docker login --username "${DOCKER_USERNAME}" --password-stdin
+deploy:
+  provider: script
+  script:
+    docker tag rest-with-spring-boot:latest leoafj/rest-with-spring-boot:$TRAVIS_JOB_ID:
+    docker push leoafj/rest-with-spring-boot:$TRAVIS_JOB_ID;
+  on:
+    branch: main
+after_success:
+  - sudo apt-get -y install python3-pip python-dev
+  - sudo pip3 install -U setuptools
+  - sudo pip3 install -U virtualenvwrapper
+  - python3 -V
+  - pip3 -V
+  - pip3 uninstall wheel
+  - pip3 install wheel
+  - pip3 install awscli --upgrade --user
+  - export PATH=$PATH:$HOME/.local/bin
+  - eval aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin 837054750835.dkr.ecr.us-east-1.amazonaws.com
+  - docker tag rest-with-spring-boot:latest $IMAGE_REPO_URL:$TRAVIS_JOB_ID
+  - docker push $IMAGE_REPO_URL:$TRAVIS_JOB_ID
+  
+notifications:
+  email: false
+    
