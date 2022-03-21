@@ -35,9 +35,6 @@ after_success:
   - pip3 install wheel
   - pip3 install awscli --upgrade --user
   - export PATH=$PATH:$HOME/.local/bin
-  - aws configure set aws_access_key_id $AWS_ACCESS_KEY
-  - aws configure set aws_secret_access_key $AWS_SECRET_KEY
-  - aws configure set default.region $AWS_DEFAULT_REGION
   - eval aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin 837054750835.dkr.ecr.us-east-1.amazonaws.com
   - docker tag rest-with-spring-boot:latest $IMAGE_REPO_URL:$TRAVIS_JOB_ID
   - docker push $IMAGE_REPO_URL:$TRAVIS_JOB_ID
